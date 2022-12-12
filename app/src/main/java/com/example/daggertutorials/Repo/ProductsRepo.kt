@@ -7,11 +7,13 @@ import com.example.daggertutorials.DB.ProductsDB
 import com.example.daggertutorials.model.Products
 import com.example.daggertutorials.retrofit.FakeProductAPI
 import com.example.daggertutorials.utils.NetworkUtils
+import dagger.hilt.android.qualifiers.ActivityContext
+import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 
 class ProductsRepo @Inject constructor(private val fakerAPI: FakeProductAPI,
                                        private val productsDB: ProductsDB,
-                                       private val context : Context
+                                       @ApplicationContext private val context : Context
 ) {
 
     private val _products = MutableLiveData<List<Products>>()
